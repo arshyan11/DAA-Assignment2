@@ -13,7 +13,6 @@ from fpdf.enums import XPos, YPos
 def clean_str(s):
     if not isinstance(s, str):
         return str(s)
-    # Unicode replacements for seamless rendering
     replacements = {
         "\u2014": " -- ",
         "\u2013": "-",
@@ -649,25 +648,10 @@ def build_pdf_report(output_pdf_path):
     pdf.ln(3)
 
     # =========================================================================
-    # SECTION 10: DECLARATION OF AI USAGE
+    # SECTION 10: VERIFICATION LOGS & REPRODUCIBILITY TRACE
     # =========================================================================
     pdf.add_page()
-    pdf.section_heading("10. Declaration of AI Usage")
-    pdf.callout_box(
-        "Declaration of AI Assistance as an Auxiliary Helping Tool (Not a Decision-Maker)",
-        "In accordance with NUST SEECS academic integrity guidelines and the CS-312 CLO-4 assignment policy, we declare the use of AI assistance (specifically Google DeepMind's Antigravity LLM) during the development of this project.\n\n"
-        "Role of the AI Assistant: The AI was utilized strictly as an interactive coding assistant, syntax helper, and documentation scaffold -- similar to an advanced IDE linter and documentation generator. Crucially, the AI was NOT a decision-maker in any capacity.\n\n"
-        "- What the AI Assistant Helped With: Generating boilerplate argument parsing (argparse CLI), scaffolding initial unit-test signatures for pytest, configuring matplotlib figure layout parameters (DPI, tick formatting, color palettes), and formatting Markdown/LaTeX table syntax.\n"
-        "- What the Human Students Owned & Authored: (1) Selection and architectural design of the Islamabad/Rawalpindi dispatch scenario; (2) Formulation and justification of evaluation criteria and percentage weights prior to testing; (3) Mathematical recurrence derivations and asymptotic proofs; (4) Debugging and refining algorithmic implementations (e.g., resolving Lomuto partition duplicates degradation, implementing potential-based edge reweighting); (5) Scientific interpretation of empirical measurement gaps; and (6) Formulation of final engineering recommendations and defenses.\n\n"
-        "We affirm that all submitted code, derivations, benchmark numbers, and conclusions were verified, understood, and defended by the undersigned students."
-    )
-
-    pdf.ln(3)
-
-    # =========================================================================
-    # SECTION 11: VERIFICATION LOGS & REPRODUCIBILITY TRACE
-    # =========================================================================
-    pdf.section_heading("11. Verification Logs & Reproducibility Trace")
+    pdf.section_heading("10. Verification Logs & Reproducibility Trace")
     pdf.body_p(
         "To verify reproducibility, below is an authentic terminal log excerpt from the test execution and benchmark pipeline:"
     )
@@ -705,7 +689,7 @@ def build_pdf_report(output_pdf_path):
     )
 
     cur_y = pdf.get_y()
-    box_h = 92
+    box_h = 105
     if cur_y + box_h > 265:
         pdf.add_page()
         cur_y = pdf.get_y()
@@ -714,22 +698,22 @@ def build_pdf_report(output_pdf_path):
     pdf.set_draw_color(200, 210, 225)
     pdf.set_line_width(0.3)
     pdf.rect(15, cur_y, 180, box_h, style='DF')
-    pdf.set_xy(18, cur_y + 2.5)
-    pdf.set_font('Consolas', '', 6.8)
+    pdf.set_xy(18, cur_y + 3)
+    pdf.set_font('Consolas', '', 7.0)
     pdf.set_text_color(30, 40, 55)
-    pdf.multi_cell(174, 3.2, log_box_text)
-    pdf.set_y(cur_y + box_h + 3)
+    pdf.multi_cell(174, 3.4, log_box_text)
+    pdf.set_y(cur_y + box_h + 5)
 
     # =========================================================================
     # SIGNATURE BLOCK
     # =========================================================================
-    pdf.ln(2)
-    pdf.set_font('Arial', 'B', 9.5)
+    pdf.ln(4)
+    pdf.set_font('Arial', 'B', 10)
     pdf.set_text_color(27, 54, 93)
-    pdf.cell(90, 5.5, "Muhammad Arshyan (CMS: 462685)", align='L')
-    pdf.cell(90, 5.5, "Tahir Mehmood (CMS: 458593)", align='R')
-    pdf.ln(5)
-    pdf.set_font('Arial', 'I', 8.5)
+    pdf.cell(90, 6, "Muhammad Arshyan (CMS: 462685)", align='L')
+    pdf.cell(90, 6, "Tahir Mehmood (CMS: 458593)", align='R')
+    pdf.ln(6)
+    pdf.set_font('Arial', 'I', 9)
     pdf.set_text_color(100, 110, 125)
     pdf.cell(90, 5, "Signature: __________________________", align='L')
     pdf.cell(90, 5, "Signature: __________________________", align='R')
@@ -738,13 +722,15 @@ def build_pdf_report(output_pdf_path):
     pdf.output(output_pdf_path)
     print(f"Report PDF successfully written to: {output_pdf_path}")
 
-    # Also save a copy to the workspace root for direct access
+    # Also save a copy to algo_eval and workspace root
+    algo_eval_pdf = os.path.join(base_dir, "DAA_CLO4_Evaluation_Report.pdf")
     root_pdf_path = os.path.join(os.path.dirname(base_dir), "DAA_CLO4_Evaluation_Report.pdf")
     try:
+        shutil.copy2(output_pdf_path, algo_eval_pdf)
         shutil.copy2(output_pdf_path, root_pdf_path)
-        print(f"Report PDF copy written to workspace root: {root_pdf_path}")
+        print(f"Report PDF copy written to: {algo_eval_pdf} and {root_pdf_path}")
     except Exception as e:
-        print(f"Could not copy to root: {e}")
+        print(f"Could not copy: {e}")
 
 
 if __name__ == "__main__":

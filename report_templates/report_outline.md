@@ -135,10 +135,6 @@ output files and figures to cite.
 
 - **Cite:** `report_templates/contribution_statement.md`
 
-## 15. Declaration of AI Usage
-
-- **Cite:** `report_templates/ai_usage_declaration.md`
-
 ## Appendix
 
 - Full data tables (raw CSVs)

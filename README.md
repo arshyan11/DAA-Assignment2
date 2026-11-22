@@ -10,8 +10,9 @@
 
 ## 1. Executive Summary & Problem Scenario
 
-In the twin-city metropolitan region of Islamabad and Rawalpindi, courier hubs (e.g., I-9 Industrial Area, Saddar) encounter two interdependent computational bottlenecks daily:
-1. **Large-Scale Multi-Attribute Order Dispatching:** Batches of delivery orders ($n = 10^3$ to $10^6$) must be sorted under delivery deadline time-windows, strict priority tiers (1 = Urgent to 5 = Economy), parcel weights, and postal zone identifiers. A critical requirement is preserving **algorithm stability** when sorting on composite keys `(priority, deadline)` to ensure fair FIFO dispatch within equal priority tiers.
+In the twin-city metropolitan region of Islamabad and Rawalpindi, courier hubs (e.g., Islamabad I-9 Industrial Area, Rawalpindi Saddar) process high volumes of delivery consignments daily. The logistics pipeline faces two interdependent computational bottlenecks:
+
+1. **Large-Scale Multi-Attribute Order Dispatching:** Batches of delivery orders ($n = 10^3$ to $10^6$) must be sorted under strict delivery deadlines, discrete priority tiers (1 = Urgent to 5 = Economy), parcel weights, and postal zone identifiers. A critical requirement is preserving **algorithm stability** when sorting on composite keys `(priority, deadline)` to ensure fair FIFO dispatch within equal priority tiers.
 2. **Single-Source Shortest Path (SSSP) Route Navigation:** Fleet couriers navigate road networks modeled as directed weighted graphs where vertices represent intersections and edges represent travel times in minutes. The network evaluates two realistic topologies:
    - **Sparse Planar Sector Grids ($E \approx 3\text{--}5V$):** Modeling Islamabad's planned sector road network (Sectors F, G, H, I) with bounded vertex degrees.
    - **Dense Arterial Networks ($E \approx V^2 / 4$):** Modeling high-capacity highway expressways, bypasses, and multi-hub interchanges.
@@ -21,11 +22,141 @@ All datasets are generated deterministically using a fixed global seed (`GLOBAL_
 
 ---
 
-## 2. Implemented Algorithms & Algorithmic Techniques
+## 2. Complete Project Structure & Output Organization
 
-All core algorithms are implemented from scratch in Python 3.10+ without relying on external sorting libraries or graph traversal packages.
+The repository is organized following modular software engineering principles. Below is the complete structural layout detailing where every component, source module, test, and generated output artifact is placed:
 
-### 2.1 Sorting Algorithms (`src/sorting/`)
+```
+algo_eval/
+├── README.md                      # Complete project documentation and output guide
+├── requirements.txt               # Pinned dependencies (numpy, pandas, matplotlib, psutil, pytest, scipy)
+├── run_all.py                     # Unified benchmark runner & evaluation pipeline CLI
+├── generate_pdf_report.py         # Automated 14-page academic evaluation report PDF compiler
+├── make_submission.py             # Packaging script creating verified submission.zip
+├── DAA_CLO4_Evaluation_Report.pdf # Standalone 14-page university evaluation report
+├── .gitignore                     # Cleanly ignores __pycache__, .pytest_cache, .pyc, and packaging archives
+│
+├── src/                           # Core implementation source code
+│   ├── sorting/                   # Implemented-from-scratch sorting algorithms
+│   │   ├── insertion_sort.py      # Quadratic baseline with O(n) early exit on sorted inputs
+│   │   ├── merge_sort.py          # Top-down with pre-allocated reusable auxiliary buffer (stable)
+│   │   ├── quick_sort.py          # Iterative stack-safe Hoare randomized & naive Lomuto variants
+│   │   ├── heap_sort.py           # In-place Floyd's sift-down construction and extraction
+│   │   ├── radix_sort.py          # Non-comparison LSD Base-256 stable counting sort on integer zone keys
+│   │   └── __init__.py            # Sorting algorithm registry & quadratic size caps
+│   │
+│   ├── graphs/                    # Implemented-from-scratch SSSP graph algorithms
+│   │   ├── graph.py               # Adjacency list directed graph representation
+│   │   ├── dijkstra_heap.py       # Min-heap frontier via heapq with lazy deletion & safety cap
+│   │   ├── dijkstra_array.py      # Flat distance array with O(V) scan per vertex (O(V^2))
+│   │   ├── bellman_ford.py        # Dynamic programming edge-list relaxation with early exit & cycle detection
+│   │   ├── spfa.py                # Shortest Path Faster Algorithm queue-based relaxation
+│   │   └── __init__.py            # Graph algorithm registry & dense size caps
+│   │
+│   ├── generators/                # Deterministic synthetic data generators
+│   │   ├── orders.py              # Order consignment records (deadlines, priorities, weights, zones)
+│   │   └── graphs.py              # Road networks (sparse grids, dense expressways, potential reweighting)
+│   │
+│   ├── benchmark/                 # Isolated measurement & profiling harness
+│   │   ├── timing.py              # High-precision time.perf_counter_ns with disabled GC isolation
+│   │   ├── memory.py              # Untimed tracemalloc peak heap & psutil RSS delta tracking
+│   │   ├── counters.py            # Hardware-independent operation counting (comparisons, swaps, relaxations)
+│   │   └── runner.py              # Experiment runner orchestrating batches with incremental CSV checkpointing
+│   │
+│   ├── analysis/                  # Analysis, scoring, and regression fitting
+│   │   ├── criteria.py            # Pre-set weights (summing to 100) & qualitative scoring matrices
+│   │   ├── scoring.py             # Min-max normalization & multi-criteria weighted scoring engine
+│   │   ├── fitting.py             # Asymptotic curve fitting (SciPy) & log-log slope regression
+│   │   ├── sensitivity.py         # 1,000-trial Dirichlet Monte Carlo perturbation analysis
+│   │   └── observations.py        # Automated gap detection and anomaly report generator
+│   │
+│   └── reporting/                 # Tabular and graphical report rendering
+│       ├── tables.py              # Automated Markdown and LaTeX table generation
+│       └── figures.py             # Publication-quality 300 DPI PNG & vector SVG chart generator
+│
+├── tests/                         # Unit and property test suite (39 passing tests)
+│   ├── conftest.py                # Shared fixtures and deterministic test seeds
+│   ├── test_sorting.py            # Correctness, stability, empty/single/duplicate/reverse cases
+│   └── test_graphs.py             # Shortest paths vs brute force, negative cycles, potential reweighting
+│
+├── report_templates/              # Markdown report scaffolds and proof documentation
+│   ├── contribution_statement.md  # Detailed work breakdown for group members
+│   ├── recurrence_worked_examples.md # Master Theorem Case 2 and recursion tree proofs
+│   └── report_outline.md          # Full academic report draft scaffold
+│
+└── output/                        # All benchmark output datasets, logs, tables, and figures
+    ├── DAA_CLO4_Evaluation_Report.pdf # 14-page comprehensive university evaluation report
+    │
+    ├── [Raw Measurement Data]
+    │   ├── raw_sorting.csv        # 1,169 recorded trials across all sizes, structures, and repeats
+    │   └── raw_graph.csv          # Multi-repeat graph benchmarks across sparse, dense, and negative modes
+    │
+    ├── [Statistical Summaries]
+    │   ├── summary_sorting.csv    # Aggregated mean, std, min, median runtime, memory, and speedups
+    │   └── summary_graph.csv      # Aggregated graph metrics across topologies and weight regimes
+    │
+    ├── [Multi-Criteria Scoring & Sensitivity]
+    │   ├── scores_sorting.csv     # Pre-registered weighted scores and rankings for sorting algorithms
+    │   ├── scores_graph.csv       # Pre-registered weighted scores and rankings for graph algorithms
+    │   ├── sensitivity_analysis.csv # 1,000-trial Dirichlet Monte Carlo ranking stability distribution
+    │   ├── sensitivity_analysis_sorting.csv # Detailed sorting sensitivity statistics
+    │   └── sensitivity_analysis_graph.csv   # Detailed graph sensitivity statistics
+    │
+    ├── [Asymptotic Regression & Complexity]
+    │   ├── fit_results.csv        # Empirical log-log regression exponents (alpha), constants, and R^2
+    │   ├── fit_results_sorting.csv # Sorting-specific curve fitting models
+    │   ├── fit_results_graph.csv   # Graph-specific curve fitting models
+    │   ├── complexity_table.csv   # Theoretical complexity benchmark table (CSV format)
+    │   └── complexity_table.md    # Theoretical complexity benchmark table (Markdown format)
+    │
+    ├── [Environment & Diagnostics]
+    │   ├── environment.json       # Host hardware (CPU model, physical cores, RAM), OS, Python/library versions
+    │   ├── correctness_and_stability_report.txt # Automated observations and empirical discrepancy notes
+    │   └── dijkstra_negative_weight_failures.csv # Discrepancy log documenting Dijkstra collapse on negative edges
+    │
+    ├── logs/                      # Execution trace logs
+    │   └── run.log                # Timestamped step-by-step pipeline execution log
+    │
+    ├── tables/                    # Exported LaTeX (.tex) and Markdown (.md) formatted tables
+    │   ├── summary_sorting.md / .tex
+    │   ├── summary_graph.md / .tex
+    │   ├── scores_sorting.md / .tex
+    │   ├── scores_graph.md / .tex
+    │   ├── fit_results.md / .tex
+    │   ├── sensitivity_analysis.md / .tex
+    │   └── complexity_table.md / .tex
+    │
+    └── figures/                   # 21 publication-quality 300 DPI PNG & vector SVG chart pairs
+        ├── runtime_loglog_sorting_random.png / .svg
+        ├── runtime_loglog_sorting_sorted.png / .svg
+        ├── runtime_loglog_sorting_reverse_sorted.png / .svg
+        ├── runtime_loglog_sorting_nearly_sorted.png / .svg
+        ├── runtime_loglog_sorting_many_duplicates.png / .svg
+        ├── runtime_loglog_sorting_composite.png / .svg
+        ├── runtime_loglog_sorting_integer_zone.png / .svg
+        ├── runtime_loglog_graph_all.png / .svg
+        ├── memory_sorting.png / .svg
+        ├── memory_graph.png / .svg
+        ├── sparse_vs_dense_graph.png / .svg
+        ├── crossover_insertion_vs_merge.png / .svg
+        ├── operation_counts_sorting.png / .svg
+        ├── time_theory_ratio_sorting.png / .svg
+        ├── time_theory_ratio_graph.png / .svg
+        ├── weighted_scores_sorting.png / .svg
+        ├── weighted_scores_graph.png / .svg
+        ├── stacked_contributions_sorting.png / .svg
+        ├── stacked_contributions_graph.png / .svg
+        ├── sensitivity_heatmap_sorting.png / .svg
+        └── sensitivity_heatmap_graph.png / .svg
+```
+
+---
+
+## 3. Implemented Algorithms & Techniques
+
+All algorithms are implemented from scratch in Python 3.10+ without using third-party algorithmic packages:
+
+### 3.1 Sorting Algorithms (`src/sorting/`)
 
 | Algorithm | Average Time | Worst Time | Space | Stable | Implementation Technique & Mechanics |
 | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -39,7 +170,7 @@ All core algorithms are implemented from scratch in Python 3.10+ without relying
 
 *\*Worst-case $O(n^2)$ occurs with negligible probability $O(1/n!)$ under random pivoting.*
 
-### 2.2 SSSP Graph Algorithms (`src/graphs/`)
+### 3.2 SSSP Graph Algorithms (`src/graphs/`)
 
 | Algorithm | Asymptotic Complexity | Space | Negative Weights | Negative Cycles | Implementation Technique & Mechanics |
 | :--- | :---: | :---: | :---: | :---: | :--- |
@@ -50,9 +181,9 @@ All core algorithms are implemented from scratch in Python 3.10+ without relying
 
 ---
 
-## 3. Evaluation Criteria & Pre-Set Weights
+## 4. Pre-Set Evaluation Criteria & Scoring Framework
 
-To prevent post-hoc bias, evaluation criteria and weights (summing strictly to 100 per domain) were defined in `src/analysis/criteria.py` prior to running experiments:
+To eliminate post-hoc evaluation bias, all criteria and percentage weights (summing strictly to 100 per domain) were formally registered in `src/analysis/criteria.py` prior to benchmark execution:
 
 ```
 Sorting Criteria (Total = 100):
@@ -79,9 +210,8 @@ Graph Criteria (Total = 100):
 
 ---
 
-## 4. Empirical Benchmarks & Theory-vs-Measurement Highlights
+## 5. Empirical Benchmarks & Theory-vs-Measurement Highlights
 
-### 4.1 Key Empirical Observations
 1. **Presorted Data Inversion:** Insertion Sort achieved $O(n)$ linear scaling ($\alpha = 1.14$, $R^2 = 0.998$, $0.95\text{ ms}$ at $n = 10,000$) on sorted data, but degraded to $O(n^2)$ ($\alpha = 2.28$, $R^2 = 1.000$, $231.5\text{ s}$) on reverse-sorted inputs.
 2. **Lomuto Partition Degradation:** Naive Quick Sort with Lomuto partitioning degraded to $O(n^2)$ ($\alpha = 1.75$, $R^2 = 0.999$) on duplicate-heavy priority inputs because equal keys clustered on one side. Our iterative Hoare dual-pointer partition fixed this, achieving balanced splits in $O(n \log n)$ time.
 3. **Cache Locality Crossover:** For $n \le 1,000$, Insertion Sort outperformed Merge Sort due to contiguous in-place L1/L2 cache prefetching. Merge Sort overtook Insertion Sort at $n \approx 1,000$ and achieved a $15\times$ speedup at $n = 10,000$.
@@ -90,54 +220,16 @@ Graph Criteria (Total = 100):
 
 ---
 
-## 5. Algorithmic Recommendations & Defenses
+## 6. Algorithmic Recommendations & Defenses
 
 - **Dispatch Order Sorting:** **Merge Sort** is recommended. While Quick Sort has lower memory overhead ($O(\log n)$ vs $O(n)$) and lower constant factors, Quick Sort is **unstable**. Sorting dispatch consignments by composite keys `(priority, deadline)` requires stability to preserve customer submission order within identical priority tiers. Merge Sort guarantees strict stability and deterministic $O(n \log n)$ performance across all input distributions.
 - **Road Network SSSP Routing:** **Dijkstra's Algorithm with Binary Min-Heap** is recommended. Metropolitan road networks in Islamabad/Rawalpindi are sparse planar networks ($E \approx 4V$), where Heap Dijkstra operates in $3.25\text{ ms}$ ($O(V \log V)$), vastly outperforming Array Dijkstra ($17.74\text{ ms}$) and Bellman-Ford ($584.06\text{ ms}$). To handle toll rebates or green incentives, the routing service incorporates an automatic fallback to SPFA ($417.92\text{ ms}$).
 
 ---
 
-## 6. Project Directory Structure
-
-```
-algo_eval/
-├── README.md                      # Comprehensive project guide and documentation
-├── requirements.txt               # Dependencies (numpy, pandas, matplotlib, psutil, pytest, scipy)
-├── run_all.py                     # Unified benchmark runner & evaluation pipeline CLI
-├── generate_pdf_report.py         # Automated 14-page academic PDF report compiler
-├── make_submission.py             # Packaging script creating verified submission.zip
-├── DAA_CLO4_Evaluation_Report.pdf # Standalone 14-page university evaluation report
-├── src/
-│   ├── sorting/                   # Implementations: insertion, merge, quick (rand/naive), heap, radix
-│   ├── graphs/                    # Implementations: dijkstra (heap/array), bellman_ford, spfa
-│   ├── generators/                # Deterministic synthetic generators (orders, road networks)
-│   ├── benchmark/                 # Isolated timing harness, tracemalloc profiler, operation counters
-│   ├── analysis/                  # Criteria config, scoring models, regression fitting, sensitivity
-│   └── reporting/                 # Automated markdown, LaTeX, and 300 DPI chart renderers
-├── tests/                         # Pytest test suite (39/39 passing unit and property tests)
-├── report_templates/              # Markdown templates for AI declaration, contributions, recurrences
-└── output/
-    ├── raw_sorting.csv            # 1,169 recorded trials across all sizes & structures
-    ├── raw_graph.csv              # Full multi-run graph benchmarks
-    ├── summary_sorting.csv        # Aggregated mean, std, min, median, speedup metrics
-    ├── summary_graph.csv          # Aggregated graph metrics
-    ├── scores_sorting.csv         # Multi-criteria scores and rankings for sorting
-    ├── scores_graph.csv           # Multi-criteria scores and rankings for graphs
-    ├── sensitivity_analysis.csv   # 1,000-trial Dirichlet robustness distribution
-    ├── fit_results.csv            # Empirical log-log exponents and R^2 goodness-of-fit
-    ├── complexity_table.csv       # Asymptotic reference table
-    ├── dijkstra_negative_weight_failures.csv # Recorded failure logs on negative edges
-    ├── environment.json           # Machine hardware and library manifest
-    ├── tables/                    # Exported LaTeX (.tex) and Markdown (.md) tables
-    ├── figures/                   # 21 publication-quality 300 DPI PNG and SVG charts
-    └── logs/run.log               # Execution log trace with timestamps
-```
-
----
-
 ## 7. Reproduction Guide
 
-### Setup & Requirements
+### Setup & Dependencies
 ```powershell
 # Clone the repository
 git clone https://github.com/arshyan11/DAA-Assignment2.git
@@ -183,13 +275,3 @@ python generate_pdf_report.py
   3. Conducted negative-weight vulnerability tests, logging corrupted distance labels and cycle detection flags.
   4. Developed matplotlib visualization pipeline (generating all 21 publication figures) and automated LaTeX table generation.
 - **Joint Collaborative Work:** Logistics scenario modeling, pre-experiment criteria weighting, test suite validation, and report review.
-
----
-
-## 9. Declaration of AI Usage
-
-> In accordance with NUST SEECS academic integrity guidelines and the CS-312 CLO-4 assignment policy, we declare the use of AI assistance (specifically Google DeepMind's Antigravity LLM) during the development of this project.  
-> **Role of the AI Assistant:** The AI was utilized strictly as an interactive coding assistant, syntax helper, and documentation scaffold -- functioning as an advanced IDE pair-programming assistant and documentation linter. Crucially, the AI was **NOT a decision-maker** in any capacity.  
-> - **What the AI Assistant Helped With:** Scaffolding boilerplate argument parsing (`argparse` CLI), drafting initial unit-test function signatures for `pytest`, configuring matplotlib figure layout parameters (DPI, tick formatting, color palettes), and formatting Markdown/LaTeX table syntax.  
-> - **What the Human Students Owned & Authored:** (1) Scenario formulation and problem modeling for Islamabad/Rawalpindi logistics; (2) Definition and justification of evaluation criteria and percentage weights prior to testing; (3) Rigorous mathematical recurrence derivations and asymptotic proofs; (4) Algorithmic implementation, debugging, and verification (diagnosing Lomuto partition duplicate collapse, implementing potential-based edge reweighting); (5) Scientific interpretation of empirical measurement gaps; and (6) Formulation and defense of final engineering recommendations.  
-> All submitted code, derivations, benchmark numbers, and conclusions were verified, understood, and defended by the undersigned student authors.
