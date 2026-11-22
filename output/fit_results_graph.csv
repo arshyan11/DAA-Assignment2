@@ -1,0 +1,9 @@
+algorithm,graph_type,best_fit_model,fitted_constant,r_squared,log_log_slope
+bellman_ford,dense,VE,44.055456,0.206,2.596
+bellman_ford,sparse,VE,31.735673,0.2037,1.6413
+dijkstra_array,dense,V2,87.00781,0.9995,2.0968
+dijkstra_array,sparse,V2,53.489962,0.9994,2.0611
+dijkstra_heap,dense,V2,57.484987,0.995,2.2161
+dijkstra_heap,sparse,V_logV_E,70.424454,0.9865,1.1888
+spfa,dense,VE,31.3343,0.2012,2.4716
+spfa,sparse,VE,26.438743,0.2128,1.3983

@@ -1,0 +1,267 @@
+2026-11-22 16:58:01,615  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 16:58:07,413  INFO      environment.json written
+2026-11-22 16:58:07,413  INFO      Running sorting experiments...
+2026-11-22 16:58:08,358  INFO      done: insertion_sort n=1000 str=random key=deadline
+2026-11-22 16:58:08,443  INFO      done: insertion_sort n=1000 str=sorted key=deadline
+2026-11-22 16:58:10,054  INFO      done: insertion_sort n=1000 str=reverse_sorted key=deadline
+2026-11-22 16:58:10,194  INFO      done: insertion_sort n=1000 str=nearly_sorted key=deadline
+2026-11-22 16:58:10,283  INFO      done: insertion_sort n=1000 str=many_duplicates key=priority
+2026-11-22 16:58:11,476  INFO      done: insertion_sort n=1000 str=composite key=composite
+2026-11-22 16:58:12,391  INFO      done: insertion_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 16:58:48,973  INFO      done: insertion_sort n=5000 str=random key=deadline
+2026-11-22 16:58:49,586  INFO      done: insertion_sort n=5000 str=sorted key=deadline
+2026-11-22 17:00:13,263  INFO      done: insertion_sort n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:00:16,688  INFO      done: insertion_sort n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:00:17,566  INFO      done: insertion_sort n=5000 str=many_duplicates key=priority
+2026-11-22 17:01:15,567  INFO      done: insertion_sort n=5000 str=composite key=composite
+2026-11-22 17:01:47,388  INFO      done: insertion_sort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:04:07,899  INFO      done: insertion_sort n=10000 str=random key=deadline
+2026-11-22 17:04:08,953  INFO      done: insertion_sort n=10000 str=sorted key=deadline
+2026-11-22 17:08:00,386  INFO      done: insertion_sort n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:08:07,230  INFO      done: insertion_sort n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:08:08,228  INFO      done: insertion_sort n=10000 str=many_duplicates key=priority
+2026-11-22 17:10:21,591  INFO      done: insertion_sort n=10000 str=composite key=composite
+2026-11-22 17:11:58,738  INFO      done: insertion_sort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:11:58,872  INFO      done: merge_sort n=1000 str=random key=deadline
+2026-11-22 17:11:58,998  INFO      done: merge_sort n=1000 str=sorted key=deadline
+2026-11-22 17:11:59,123  INFO      done: merge_sort n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:11:59,241  INFO      done: merge_sort n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:11:59,359  INFO      done: merge_sort n=1000 str=many_duplicates key=priority
+2026-11-22 17:11:59,554  INFO      done: merge_sort n=1000 str=composite key=composite
+2026-11-22 17:11:59,702  INFO      done: merge_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:12:00,477  INFO      done: merge_sort n=5000 str=random key=deadline
+2026-11-22 17:12:01,177  INFO      done: merge_sort n=5000 str=sorted key=deadline
+2026-11-22 17:12:01,920  INFO      done: merge_sort n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:12:02,695  INFO      done: merge_sort n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:12:03,401  INFO      done: merge_sort n=5000 str=many_duplicates key=priority
+2026-11-22 17:12:04,247  INFO      done: merge_sort n=5000 str=composite key=composite
+2026-11-22 17:12:05,101  INFO      done: merge_sort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:12:06,751  INFO      done: merge_sort n=10000 str=random key=deadline
+2026-11-22 17:12:08,372  INFO      done: merge_sort n=10000 str=sorted key=deadline
+2026-11-22 17:12:09,875  INFO      done: merge_sort n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:12:11,494  INFO      done: merge_sort n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:12:13,023  INFO      done: merge_sort n=10000 str=many_duplicates key=priority
+2026-11-22 17:12:14,892  INFO      done: merge_sort n=10000 str=composite key=composite
+2026-11-22 17:12:16,449  INFO      done: merge_sort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:12:25,594  INFO      done: merge_sort n=50000 str=random key=deadline
+2026-11-22 17:12:34,230  INFO      done: merge_sort n=50000 str=sorted key=deadline
+2026-11-22 17:12:42,934  INFO      done: merge_sort n=50000 str=reverse_sorted key=deadline
+2026-11-22 17:12:52,329  INFO      done: merge_sort n=50000 str=nearly_sorted key=deadline
+2026-11-22 17:13:15,274  INFO      done: merge_sort n=50000 str=many_duplicates key=priority
+2026-11-22 17:13:57,292  INFO      done: merge_sort n=50000 str=composite key=composite
+2026-11-22 17:14:35,501  INFO      done: merge_sort n=50000 str=integer_zone key=zone_id
+2026-11-22 17:14:36,145  INFO      done: quick_sort n=1000 str=random key=deadline
+2026-11-22 17:14:36,746  INFO      done: quick_sort n=1000 str=sorted key=deadline
+2026-11-22 17:14:37,282  INFO      done: quick_sort n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:14:38,065  INFO      done: quick_sort n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:14:40,418  INFO      done: quick_sort n=1000 str=many_duplicates key=priority
+2026-11-22 17:14:41,024  INFO      done: quick_sort n=1000 str=composite key=composite
+2026-11-22 17:14:41,891  INFO      done: quick_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:14:45,038  INFO      done: quick_sort n=5000 str=random key=deadline
+2026-11-22 17:14:48,339  INFO      done: quick_sort n=5000 str=sorted key=deadline
+2026-11-22 17:14:51,632  INFO      done: quick_sort n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:14:54,829  INFO      done: quick_sort n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:15:42,916  INFO      done: quick_sort n=5000 str=many_duplicates key=priority
+2026-11-22 17:15:46,490  INFO      done: quick_sort n=5000 str=composite key=composite
+2026-11-22 17:16:01,033  INFO      done: quick_sort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:16:07,962  INFO      done: quick_sort n=10000 str=random key=deadline
+2026-11-22 17:16:12,539  INFO      done: quick_sort n=10000 str=sorted key=deadline
+2026-11-22 17:16:14,174  INFO      done: quick_sort n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:16:15,798  INFO      done: quick_sort n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:16:58,683  INFO      done: quick_sort n=10000 str=many_duplicates key=priority
+2026-11-22 17:17:00,310  INFO      done: quick_sort n=10000 str=composite key=composite
+2026-11-22 17:17:12,204  INFO      done: quick_sort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:17:21,375  INFO      done: quick_sort n=50000 str=random key=deadline
+2026-11-22 17:17:30,539  INFO      done: quick_sort n=50000 str=sorted key=deadline
+2026-11-22 17:17:39,851  INFO      done: quick_sort n=50000 str=reverse_sorted key=deadline
+2026-11-22 17:17:49,077  INFO      done: quick_sort n=50000 str=nearly_sorted key=deadline
+2026-11-22 17:27:01,584  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 17:27:01,905  INFO      environment.json written
+2026-11-22 17:27:01,905  INFO      Running sorting experiments...
+2026-11-22 17:27:02,989  INFO      done: insertion_sort n=1000 str=random key=deadline
+2026-11-22 17:27:03,098  INFO      done: insertion_sort n=1000 str=sorted key=deadline
+2026-11-22 17:27:04,887  INFO      done: insertion_sort n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:27:05,045  INFO      done: insertion_sort n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:27:05,147  INFO      done: insertion_sort n=1000 str=many_duplicates key=priority
+2026-11-22 17:27:06,353  INFO      done: insertion_sort n=1000 str=composite key=composite
+2026-11-22 17:27:07,249  INFO      done: insertion_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:27:59,387  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 17:27:59,573  INFO      environment.json written
+2026-11-22 17:27:59,574  INFO      Running sorting experiments...
+2026-11-22 17:28:09,372  INFO      done: quick_sort n=50000 str=many_duplicates key=priority
+2026-11-22 17:28:19,497  INFO      done: quick_sort n=50000 str=composite key=composite
+2026-11-22 17:28:29,138  INFO      done: quick_sort n=50000 str=integer_zone key=zone_id
+2026-11-22 17:28:29,422  INFO      done: quick_sort_naive n=1000 str=random key=deadline
+2026-11-22 17:28:30,610  INFO      done: quick_sort_naive n=1000 str=sorted key=deadline
+2026-11-22 17:28:32,250  INFO      done: quick_sort_naive n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:28:32,678  INFO      done: quick_sort_naive n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:28:33,332  INFO      done: quick_sort_naive n=1000 str=many_duplicates key=priority
+2026-11-22 17:28:33,471  INFO      done: quick_sort_naive n=1000 str=composite key=composite
+2026-11-22 17:28:33,720  INFO      done: quick_sort_naive n=1000 str=integer_zone key=zone_id
+2026-11-22 17:28:34,575  INFO      done: quick_sort_naive n=5000 str=random key=deadline
+2026-11-22 17:29:08,072  INFO      done: quick_sort_naive n=5000 str=sorted key=deadline
+2026-11-22 17:29:48,517  INFO      done: quick_sort_naive n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:29:50,446  INFO      done: quick_sort_naive n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:30:00,380  INFO      done: quick_sort_naive n=5000 str=many_duplicates key=priority
+2026-11-22 17:30:01,060  INFO      done: quick_sort_naive n=5000 str=composite key=composite
+2026-11-22 17:30:03,917  INFO      done: quick_sort_naive n=5000 str=integer_zone key=zone_id
+2026-11-22 17:30:05,237  INFO      done: quick_sort_naive n=10000 str=random key=deadline
+2026-11-22 17:31:39,420  INFO      done: quick_sort_naive n=10000 str=sorted key=deadline
+2026-11-22 17:34:02,029  INFO      done: quick_sort_naive n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:34:04,935  INFO      done: quick_sort_naive n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:34:42,852  INFO      done: quick_sort_naive n=10000 str=many_duplicates key=priority
+2026-11-22 17:34:44,366  INFO      done: quick_sort_naive n=10000 str=composite key=composite
+2026-11-22 17:34:54,619  INFO      done: quick_sort_naive n=10000 str=integer_zone key=zone_id
+2026-11-22 17:34:54,765  INFO      done: heap_sort n=1000 str=random key=deadline
+2026-11-22 17:34:54,902  INFO      done: heap_sort n=1000 str=sorted key=deadline
+2026-11-22 17:34:55,077  INFO      done: heap_sort n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:34:55,202  INFO      done: heap_sort n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:34:55,337  INFO      done: heap_sort n=1000 str=many_duplicates key=priority
+2026-11-22 17:34:55,479  INFO      done: heap_sort n=1000 str=composite key=composite
+2026-11-22 17:34:55,604  INFO      done: heap_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:34:56,334  INFO      done: heap_sort n=5000 str=random key=deadline
+2026-11-22 17:34:57,056  INFO      done: heap_sort n=5000 str=sorted key=deadline
+2026-11-22 17:34:57,751  INFO      done: heap_sort n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:34:58,562  INFO      done: heap_sort n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:34:59,212  INFO      done: heap_sort n=5000 str=many_duplicates key=priority
+2026-11-22 17:35:00,084  INFO      done: heap_sort n=5000 str=composite key=composite
+2026-11-22 17:35:00,793  INFO      done: heap_sort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:35:02,385  INFO      done: heap_sort n=10000 str=random key=deadline
+2026-11-22 17:35:04,031  INFO      done: heap_sort n=10000 str=sorted key=deadline
+2026-11-22 17:35:05,583  INFO      done: heap_sort n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:35:07,177  INFO      done: heap_sort n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:35:08,568  INFO      done: heap_sort n=10000 str=many_duplicates key=priority
+2026-11-22 17:35:10,317  INFO      done: heap_sort n=10000 str=composite key=composite
+2026-11-22 17:35:11,894  INFO      done: heap_sort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:35:21,179  INFO      done: heap_sort n=50000 str=random key=deadline
+2026-11-22 17:35:30,540  INFO      done: heap_sort n=50000 str=sorted key=deadline
+2026-11-22 17:35:39,631  INFO      done: heap_sort n=50000 str=reverse_sorted key=deadline
+2026-11-22 17:35:49,057  INFO      done: heap_sort n=50000 str=nearly_sorted key=deadline
+2026-11-22 17:35:57,374  INFO      done: heap_sort n=50000 str=many_duplicates key=priority
+2026-11-22 17:36:08,590  INFO      done: heap_sort n=50000 str=composite key=composite
+2026-11-22 17:36:17,880  INFO      done: heap_sort n=50000 str=integer_zone key=zone_id
+2026-11-22 17:36:18,024  INFO      done: radix_sort n=1000 str=many_duplicates key=priority
+2026-11-22 17:36:18,106  INFO      done: radix_sort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:36:18,559  INFO      done: radix_sort n=5000 str=many_duplicates key=priority
+2026-11-22 17:36:19,017  INFO      done: radix_sort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:36:19,936  INFO      done: radix_sort n=10000 str=many_duplicates key=priority
+2026-11-22 17:36:20,821  INFO      done: radix_sort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:36:25,956  INFO      done: radix_sort n=50000 str=many_duplicates key=priority
+2026-11-22 17:36:30,724  INFO      done: radix_sort n=50000 str=integer_zone key=zone_id
+2026-11-22 17:36:30,857  INFO      done: timsort n=1000 str=random key=deadline
+2026-11-22 17:36:30,933  INFO      done: timsort n=1000 str=sorted key=deadline
+2026-11-22 17:36:31,013  INFO      done: timsort n=1000 str=reverse_sorted key=deadline
+2026-11-22 17:36:31,112  INFO      done: timsort n=1000 str=nearly_sorted key=deadline
+2026-11-22 17:36:31,198  INFO      done: timsort n=1000 str=many_duplicates key=priority
+2026-11-22 17:36:31,275  INFO      done: timsort n=1000 str=composite key=composite
+2026-11-22 17:36:31,353  INFO      done: timsort n=1000 str=integer_zone key=zone_id
+2026-11-22 17:36:31,763  INFO      done: timsort n=5000 str=random key=deadline
+2026-11-22 17:36:32,174  INFO      done: timsort n=5000 str=sorted key=deadline
+2026-11-22 17:36:32,572  INFO      done: timsort n=5000 str=reverse_sorted key=deadline
+2026-11-22 17:36:32,969  INFO      done: timsort n=5000 str=nearly_sorted key=deadline
+2026-11-22 17:36:33,385  INFO      done: timsort n=5000 str=many_duplicates key=priority
+2026-11-22 17:36:33,799  INFO      done: timsort n=5000 str=composite key=composite
+2026-11-22 17:36:34,194  INFO      done: timsort n=5000 str=integer_zone key=zone_id
+2026-11-22 17:36:35,048  INFO      done: timsort n=10000 str=random key=deadline
+2026-11-22 17:36:35,872  INFO      done: timsort n=10000 str=sorted key=deadline
+2026-11-22 17:36:36,706  INFO      done: timsort n=10000 str=reverse_sorted key=deadline
+2026-11-22 17:36:37,556  INFO      done: timsort n=10000 str=nearly_sorted key=deadline
+2026-11-22 17:36:38,457  INFO      done: timsort n=10000 str=many_duplicates key=priority
+2026-11-22 17:36:39,305  INFO      done: timsort n=10000 str=composite key=composite
+2026-11-22 17:36:40,159  INFO      done: timsort n=10000 str=integer_zone key=zone_id
+2026-11-22 17:36:44,476  INFO      done: timsort n=50000 str=random key=deadline
+2026-11-22 17:36:49,160  INFO      done: timsort n=50000 str=sorted key=deadline
+2026-11-22 17:36:53,918  INFO      done: timsort n=50000 str=reverse_sorted key=deadline
+2026-11-22 17:36:58,689  INFO      done: timsort n=50000 str=nearly_sorted key=deadline
+2026-11-22 17:37:03,398  INFO      done: timsort n=50000 str=many_duplicates key=priority
+2026-11-22 17:37:08,708  INFO      done: timsort n=50000 str=composite key=composite
+2026-11-22 17:37:13,252  INFO      done: timsort n=50000 str=integer_zone key=zone_id
+2026-11-22 17:37:13,364  INFO      Sorting experiments done.
+2026-11-22 17:37:13,364  INFO      Running graph experiments...
+2026-11-22 17:37:13,367  INFO      done: dijkstra_heap sparse V=100 wmode=positive
+2026-11-22 17:49:53,102  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 17:49:53,343  INFO      environment.json written
+2026-11-22 17:49:53,343  INFO      Running sorting experiments...
+2026-11-22 17:49:53,356  INFO      Sorting experiments done.
+2026-11-22 17:49:53,356  INFO      Running graph experiments...
+2026-11-22 17:49:53,445  INFO      done: dijkstra_heap sparse V=100 wmode=negative_safe
+2026-11-22 17:49:53,509  INFO      done: dijkstra_heap sparse V=100 wmode=negative_cycle
+2026-11-22 17:49:53,530  INFO      done: dijkstra_heap sparse V=484 wmode=positive
+2026-11-22 17:49:54,012  INFO      done: dijkstra_heap sparse V=484 wmode=negative_safe
+2026-11-22 17:49:54,425  INFO      done: dijkstra_heap sparse V=484 wmode=negative_cycle
+2026-11-22 17:49:54,460  INFO      done: dijkstra_heap sparse V=992 wmode=positive
+2026-11-22 17:49:55,479  INFO      done: dijkstra_heap sparse V=992 wmode=negative_safe
+2026-11-22 17:49:56,741  INFO      done: dijkstra_heap sparse V=992 wmode=negative_cycle
+2026-11-22 17:49:56,762  INFO      done: dijkstra_heap dense V=100 wmode=positive
+2026-11-22 17:50:03,156  INFO      done: dijkstra_heap dense V=100 wmode=negative_safe
+2026-11-22 17:50:10,429  INFO      done: dijkstra_heap dense V=100 wmode=negative_cycle
+2026-11-22 17:50:10,907  INFO      done: dijkstra_heap dense V=500 wmode=positive
+2026-11-22 19:18:32,855  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 19:18:33,059  INFO      environment.json written
+2026-11-22 19:18:33,059  INFO      Running sorting experiments...
+2026-11-22 19:18:33,069  INFO      Sorting experiments done.
+2026-11-22 19:18:33,070  INFO      Running graph experiments...
+2026-11-22 19:18:33,072  INFO      done: dijkstra_heap sparse V=100 wmode=positive
+2026-11-22 19:18:33,074  INFO      done: dijkstra_heap sparse V=100 wmode=negative_safe
+2026-11-22 19:18:33,083  INFO      done: dijkstra_heap sparse V=484 wmode=positive
+2026-11-22 19:18:33,094  INFO      done: dijkstra_heap sparse V=484 wmode=negative_safe
+2026-11-22 19:18:33,118  INFO      done: dijkstra_heap sparse V=992 wmode=positive
+2026-11-22 19:18:33,142  INFO      done: dijkstra_heap sparse V=992 wmode=negative_safe
+2026-11-22 19:18:33,161  INFO      done: dijkstra_heap dense V=100 wmode=positive
+2026-11-22 19:18:33,179  INFO      done: dijkstra_heap dense V=100 wmode=negative_safe
+2026-11-22 19:18:33,642  INFO      done: dijkstra_heap dense V=500 wmode=positive
+2026-11-22 19:18:34,143  INFO      done: dijkstra_heap dense V=500 wmode=negative_safe
+2026-11-22 19:18:34,163  INFO      done: dijkstra_array sparse V=100 wmode=positive
+2026-11-22 19:18:34,172  INFO      done: dijkstra_array sparse V=100 wmode=negative_safe
+2026-11-22 19:18:34,449  INFO      done: dijkstra_array sparse V=484 wmode=positive
+2026-11-22 19:18:34,735  INFO      done: dijkstra_array sparse V=484 wmode=negative_safe
+2026-11-22 19:18:36,025  INFO      done: dijkstra_array sparse V=992 wmode=positive
+2026-11-22 19:18:37,288  INFO      done: dijkstra_array sparse V=992 wmode=negative_safe
+2026-11-22 19:18:37,315  INFO      done: dijkstra_array dense V=100 wmode=positive
+2026-11-22 19:18:37,338  INFO      done: dijkstra_array dense V=100 wmode=negative_safe
+2026-11-22 19:18:37,982  INFO      done: dijkstra_array dense V=500 wmode=positive
+2026-11-22 19:18:38,684  INFO      done: dijkstra_array dense V=500 wmode=negative_safe
+2026-11-22 19:18:38,695  INFO      done: bellman_ford sparse V=100 wmode=positive
+2026-11-22 19:18:38,700  INFO      done: bellman_ford sparse V=100 wmode=negative_safe
+2026-11-22 19:18:38,755  INFO      done: bellman_ford sparse V=100 wmode=negative_cycle
+2026-11-22 19:18:38,791  INFO      done: bellman_ford sparse V=484 wmode=positive
+2026-11-22 19:18:38,841  INFO      done: bellman_ford sparse V=484 wmode=negative_safe
+2026-11-22 19:18:40,826  INFO      done: bellman_ford sparse V=484 wmode=negative_cycle
+2026-11-22 19:18:41,017  INFO      done: bellman_ford sparse V=992 wmode=positive
+2026-11-22 19:18:41,122  INFO      done: bellman_ford sparse V=992 wmode=negative_safe
+2026-11-22 19:18:48,096  INFO      done: bellman_ford sparse V=992 wmode=negative_cycle
+2026-11-22 19:18:48,139  INFO      done: bellman_ford dense V=100 wmode=positive
+2026-11-22 19:18:48,176  INFO      done: bellman_ford dense V=100 wmode=negative_safe
+2026-11-22 19:18:48,975  INFO      done: bellman_ford dense V=100 wmode=negative_cycle
+2026-11-22 19:18:50,198  INFO      done: bellman_ford dense V=500 wmode=positive
+2026-11-22 19:18:51,852  INFO      done: bellman_ford dense V=500 wmode=negative_safe
+2026-11-22 19:21:17,205  INFO      done: bellman_ford dense V=500 wmode=negative_cycle
+2026-11-22 19:21:17,215  INFO      done: spfa sparse V=100 wmode=positive
+2026-11-22 19:21:17,217  INFO      done: spfa sparse V=100 wmode=negative_safe
+2026-11-22 19:21:17,315  INFO      done: spfa sparse V=100 wmode=negative_cycle
+2026-11-22 19:21:17,327  INFO      done: spfa sparse V=484 wmode=positive
+2026-11-22 19:21:17,344  INFO      done: spfa sparse V=484 wmode=negative_safe
+2026-11-22 19:21:18,580  INFO      done: spfa sparse V=484 wmode=negative_cycle
+2026-11-22 19:21:18,654  INFO      done: spfa sparse V=992 wmode=positive
+2026-11-22 19:21:18,707  INFO      done: spfa sparse V=992 wmode=negative_safe
+2026-11-22 19:21:25,070  INFO      done: spfa sparse V=992 wmode=negative_cycle
+2026-11-22 19:21:25,104  INFO      done: spfa dense V=100 wmode=positive
+2026-11-22 19:21:25,129  INFO      done: spfa dense V=100 wmode=negative_safe
+2026-11-22 19:21:25,840  INFO      done: spfa dense V=100 wmode=negative_cycle
+2026-11-22 19:21:26,460  INFO      done: spfa dense V=500 wmode=positive
+2026-11-22 19:21:27,154  INFO      done: spfa dense V=500 wmode=negative_safe
+2026-11-22 19:23:31,295  INFO      done: spfa dense V=500 wmode=negative_cycle
+2026-11-22 19:23:31,307  INFO      Graph experiments done.
+2026-11-22 19:23:31,307  INFO      Generating report assets...
+2026-11-22 19:23:35,457  INFO      Building sorting summary...
+2026-11-22 19:23:35,504  WARNING   Report generation failed: Missing optional dependency 'tabulate'.  Use pip or conda to install tabulate.
+2026-11-22 19:23:35,514  INFO      All done. Outputs in: C:\Users\Pixlaps\Downloads\assignment2_daa\algo_eval\output
+2026-11-22 19:24:31,254  INFO      Starting benchmark | mode=quick seed=2024
+2026-11-22 19:24:31,553  INFO      environment.json written
+2026-11-22 19:24:31,553  INFO      Generating report assets...
+2026-11-22 19:24:32,471  INFO      Building sorting summary...
+2026-11-22 19:24:32,537  INFO      Building graph summary...
+2026-11-22 19:24:32,567  INFO      Scoring and sensitivity for sorting...
+2026-11-22 19:24:58,880  INFO      Scoring and sensitivity for graphs...
+2026-11-22 19:25:12,003  INFO      Report generation complete. All outputs in C:\Users\Pixlaps\Downloads\assignment2_daa\algo_eval\output
+2026-11-22 19:25:12,004  INFO      All done. Outputs in: C:\Users\Pixlaps\Downloads\assignment2_daa\algo_eval\output

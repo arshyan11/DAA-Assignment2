@@ -1,0 +1,72 @@
+DRAFT OBSERVATIONS (edit before including in report)
+============================================================
+
+SORTING
+----------------------------------------
+Across all sizes and structures, timsort had the lowest average runtime and insertion_sort the highest. Speedup factor: 15.6x.
+Insertion sort is competitive at small sizes (n <= ~1000) due to low constant factor and cache locality, but merge sort overtakes it as n grows - this is the classic O(n^2) vs O(n log n) crossover.
+On many-duplicates input, quick sort with random pivot may show degraded performance if the partition repeatedly creates unbalanced halves around equal elements. Merge sort and radix sort are unaffected.
+On already-sorted input, insertion sort achieves O(n) (zero swaps, one comparison per element), giving it a large advantage over heap sort and quick sort on that specific structure.
+heap_sort: empirical log-log slope = 1.11 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.09 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.07 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.09 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.09 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.06 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+heap_sort: empirical log-log slope = 1.07 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+insertion_sort: R^2=0.945 is low, suggesting the runtime varies significantly across input structures (slope=2.10).
+insertion_sort: empirical log-log slope = 1.98 (R^2=0.984), consistent with best-fit model 'n2'.
+insertion_sort: R^2=0.814 is low, suggesting the runtime varies significantly across input structures (slope=1.11).
+insertion_sort: empirical log-log slope = 1.56 (R^2=0.990), consistent with best-fit model 'n_log_n'.
+insertion_sort: empirical log-log slope = 2.12 (R^2=1.000), consistent with best-fit model 'n2'.
+insertion_sort: empirical log-log slope = 2.28 (R^2=1.000), consistent with best-fit model 'n2'.
+insertion_sort: empirical log-log slope = 1.14 (R^2=0.998), consistent with best-fit model 'n'.
+merge_sort: empirical log-log slope = 1.31 (R^2=1.000), consistent with best-fit model 'n2'.
+merge_sort: empirical log-log slope = 1.38 (R^2=1.000), consistent with best-fit model 'n2'.
+merge_sort: empirical log-log slope = 1.45 (R^2=1.000), consistent with best-fit model 'n2'.
+merge_sort: empirical log-log slope = 1.10 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+merge_sort: empirical log-log slope = 1.09 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+merge_sort: empirical log-log slope = 1.09 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+merge_sort: empirical log-log slope = 1.05 (R^2=0.999), consistent with best-fit model 'n_log_n'.
+quick_sort: R^2=0.882 is low, suggesting the runtime varies significantly across input structures (slope=0.70).
+quick_sort: R^2=-1.094 is low, suggesting the runtime varies significantly across input structures (slope=0.61).
+quick_sort: R^2=-1.508 is low, suggesting the runtime varies significantly across input structures (slope=0.44).
+quick_sort: R^2=0.883 is low, suggesting the runtime varies significantly across input structures (slope=0.62).
+quick_sort: R^2=0.244 is low, suggesting the runtime varies significantly across input structures (slope=0.76).
+quick_sort: R^2=0.860 is low, suggesting the runtime varies significantly across input structures (slope=0.65).
+quick_sort: R^2=0.807 is low, suggesting the runtime varies significantly across input structures (slope=0.62).
+quick_sort_naive: empirical log-log slope = 1.07 (R^2=0.999), consistent with best-fit model 'n_log_n'.
+quick_sort_naive: empirical log-log slope = 1.55 (R^2=0.997), consistent with best-fit model 'n2'.
+quick_sort_naive: empirical log-log slope = 1.75 (R^2=0.999), consistent with best-fit model 'n2'.
+quick_sort_naive: R^2=0.930 is low, suggesting the runtime varies significantly across input structures (slope=0.75).
+quick_sort_naive: empirical log-log slope = 0.87 (R^2=0.978), consistent with best-fit model 'n'.
+quick_sort_naive: empirical log-log slope = 1.90 (R^2=1.000), consistent with best-fit model 'n2'.
+quick_sort_naive: empirical log-log slope = 1.86 (R^2=0.982), consistent with best-fit model 'n2'.
+radix_sort: empirical log-log slope = 1.04 (R^2=0.999), consistent with best-fit model 'n_log_n'.
+radix_sort: empirical log-log slope = 1.06 (R^2=1.000), consistent with best-fit model 'n'.
+timsort: empirical log-log slope = 1.07 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+timsort: empirical log-log slope = 1.04 (R^2=1.000), consistent with best-fit model 'n'.
+timsort: empirical log-log slope = 0.99 (R^2=1.000), consistent with best-fit model 'n'.
+timsort: empirical log-log slope = 1.05 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+timsort: empirical log-log slope = 1.02 (R^2=1.000), consistent with best-fit model 'n'.
+timsort: empirical log-log slope = 1.03 (R^2=1.000), consistent with best-fit model 'n_log_n'.
+timsort: empirical log-log slope = 1.04 (R^2=1.000), consistent with best-fit model 'n'.
+bellman_ford: R^2=0.206 is low, suggesting the runtime varies significantly across input structures (slope=2.60).
+bellman_ford: R^2=0.204 is low, suggesting the runtime varies significantly across input structures (slope=1.64).
+dijkstra_array: empirical log-log slope = 2.10 (R^2=1.000), consistent with best-fit model 'V2'.
+dijkstra_array: empirical log-log slope = 2.06 (R^2=0.999), consistent with best-fit model 'V2'.
+dijkstra_heap: empirical log-log slope = 2.22 (R^2=0.995), consistent with best-fit model 'V2'.
+dijkstra_heap: empirical log-log slope = 1.19 (R^2=0.987), consistent with best-fit model 'V_logV_E'.
+spfa: R^2=0.201 is low, suggesting the runtime varies significantly across input structures (slope=2.47).
+spfa: R^2=0.213 is low, suggesting the runtime varies significantly across input structures (slope=1.40).
+
+GRAPH
+----------------------------------------
+Fastest graph algorithm overall: dijkstra_heap. Slowest: bellman_ford.
+Dijkstra (heap) is typically fastest on sparse graphs. On dense graphs, Dijkstra (array) with O(V^2) becomes competitive because the heap overhead (log V per push) accumulates when E is large.
+Bellman-Ford's early-exit optimisation causes actual iteration counts to be much less than V-1 on typical sparse graphs, partly explaining why its measured time is better than the O(V*E) bound suggests.
+Dijkstra produces wrong answers on graphs with negative-weight edges. The dijkstra_negative_weight_failures.csv file lists vertex-level errors. This is not a bug - it is a known limitation of greedy relabelling.
+SPFA matches or beats Bellman-Ford on most practical inputs because it only re-relaxes neighbours of vertices whose distance changed.
+
+NOTE: These observations are machine-generated from the data.
+Review and rewrite in your own words before submission.

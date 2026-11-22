@@ -1,0 +1,13 @@
+perturbed_criterion,perturbation,top_ranked
+measured_runtime,+10.0,timsort
+measured_runtime,-10.0,timsort
+theoretical_complexity,+10.0,radix_sort
+theoretical_complexity,-10.0,timsort
+memory,+10.0,heap_sort
+memory,-10.0,timsort
+stability,+10.0,timsort
+stability,-10.0,heap_sort
+input_robustness,+10.0,timsort
+input_robustness,-10.0,timsort
+data_type_suitability,+10.0,timsort
+data_type_suitability,-10.0,radix_sort

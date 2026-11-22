@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+submission.zip
+.pytest_cache/
+.coverage
+htmlcov/
+.cache
+.env
+venv/
+.venv/
+env/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
